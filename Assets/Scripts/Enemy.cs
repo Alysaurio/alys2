@@ -1,8 +1,9 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Enemy : MonoBehaviour
 {
-    private Health health = new();
+    [SerializeField] private int health = 100;
     
     void Start()
     {
@@ -13,4 +14,16 @@ public class Enemy : MonoBehaviour
     {
         
     }
+
+    public void DamagetoEnemy(int damage)
+    {
+        health -= damage;
+        if (health < 0)
+        {
+            health = 0;
+            Debug.Log("Enemigo derrotado");
+        }
+       
+    }
+
 }
