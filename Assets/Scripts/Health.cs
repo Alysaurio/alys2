@@ -1,32 +1,27 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health
 {
-    [SerializeField] private int health = 100;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
+    [SerializeField] private int value = 100;
+   
     public void TakeDamage(int daño)
     {
-        health -= daño;
-        if (health < 0)
+        value -= daño;
+        if (value < 0)
         {
-            health = 0; 
+            value = 0; 
         }
+    }
+    public int GetLife()
+    {
+        return value
     }
     public void Curarse(int cura)
     {
-        health += cura; 
-        if (health >100)
+        value += cura; 
+        if (value >100)
         {
-            health=100;
+            value=100;
         }
     }
 
