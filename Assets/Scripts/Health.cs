@@ -2,15 +2,32 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private int health = 100;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    public void TakeDamage(int daño)
+    {
+        health -= daño;
+        if (health < 0)
+        {
+            health = 0; 
+        }
+    }
+    public void Curarse(int cura)
+    {
+        health += cura; 
+        if (health >100)
+        {
+            health=100;
+        }
+    }
+
 }
